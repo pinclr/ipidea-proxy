@@ -5,15 +5,20 @@ import requests
 
 class IpIdeaProxy(object):
 
-  def __init__(self, uid, appkey) -> None:
+  def __init__(self, uid='', appkey='') -> None:
+    #
+    # get the uid and appkey from https://www.ipidea.net/ipidea-api.html#001
+    # after signed in from https://www.ipidea.net/userLogin
+    #
     self.uid = uid
     self.appkey = appkey
     self.apibase = 'https://api.ipidea.net/api/open/'
 
-  """API authorization
-  """
-  def auth(self):
-    pass
+  def auth(self, uid, appkey):
+    """auth the client when the client is instantiated without auth info
+    """
+    self.uid = uid
+    self.appkey = appkey
 
   """whitelisting APIs
   """
