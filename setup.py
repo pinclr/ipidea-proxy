@@ -11,10 +11,10 @@ setuptools.setup(
     description="Python Client for Ipidea Proxy Service API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pinclr/ipidea-proxy",
-    packages=['ipidea-client'],
     package_dir={'': 'src'},
+    packages=setuptools.find_packages(where="src"),
     package_data={'': ['*.py']},
+    url="https://github.com/pinclr/ipidea-proxy",
     install_requires = [],
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -5,8 +5,10 @@ import requests
 
 class IpIdeaProxy(object):
 
-  def __init__(self) -> None:
-    pass
+  def __init__(self, uid, appkey) -> None:
+    self.uid = uid
+    self.appkey = appkey
+    self.apibase = 'https://api.ipidea.net/api/open/'
 
   """API authorization
   """
@@ -16,14 +18,61 @@ class IpIdeaProxy(object):
   """whitelisting APIs
   """
 
-  def add_whitelist(self):
-    pass
+  #添加白名单（尚未解决输入多个IP同时完成指令）：
+  def add_whitelist(self, white_ips):
+    url = f'{self.apibase}white_add'
 
+    params = {
+      'uid': self.uid,
+      'appkey': self.appkey,
+      'white_ips': white_ips
+    }
+
+    r = requests.Session()
+    r0 = r.get(url=url,params=params)
+    try:
+      data = r0.json()
+    except Exception as e:
+      raise(e)
+
+    return data
+    
+  #查找白名单
   def list_whitelist(self):
-    pass
+    url = f'{self.apibase}white_list'
 
-  def delete_whitelist(self):
-    pass
+    params = {
+      'uid':self.uid,
+      'appkey':self.appkey
+    }
+
+    r = requests.Session()
+    r0 = r.get(url=url,params=params)
+    try:
+      data = r0.json()
+    except Exception as e:
+      raise(e)
+
+    return data
+    
+  #删除白名单（尚未解决输入多个IP同时完成指令）
+  def delete_whitelist(self, white_ips):
+    url = f'{self.apibase}white_del'
+
+    params = {
+      'uid':self.uid,
+      'appkey':self.appkey,
+      'white_ips':white_ips
+    }
+
+    r = requests.Session()
+    r0 = r.get(url=url,params=params)
+    try:
+      data = r0.json()
+    except Exception as e:
+      raise(e)
+
+    return data
 
   
   """authentication APIs
@@ -42,17 +91,86 @@ class IpIdeaProxy(object):
   """flow APIs
   """
 
+    #获取剩余流量
   def get_remaining_quota(self):
-    pass
+    url = f'{self.apibase}flow_left'
+        
+    params = {
+        'uid':self.uid,
+        'appkey':self.appkey
+    }
 
-  def set_alarm_threshold(self):
-    pass
+    r = requests.Session()
+    r0 = r.get(url=url,params=params)
+    try:
+      data = r0.json()
+    except Exception as e:
+      raise(e)
 
-  def get_main_account_usage(self):
-    pass
+    return data
+    
+  #流量预警设置
+  def set_alarm_threshold(self, phone, flow_upper_limit, operate, status):
+    url = f'{self.apibase}flow_warning_set'
+        
+    params = {
+      'uid':self.uid,
+      'appkey':self.appkey,
+      'phone':phone,
+      'flow_upper_limit':flow_upper_limit,
+      'operate':operate,
+      'status':status
+    }
+        
+    r = requests.Session()
+    r0 = r.get(url=url,params=params)
+    try:
+      data = r0.json()
+    except Exception as e:
+      raise(e)
 
-  def get_sub_account_usage(self):
-    pass
+    return data
+    
+    #查看主账户流量使用：
+  def get_main_account_usage(self, start_time, end_time):
+    url = f'{self.apibase}flow_use_record'
+        
+    params = {
+      'uid':self.uid,
+      'appkey':self.appkey,
+      'start_time':start_time,
+      'end_time':end_time
+    }
+        
+    r = requests.Session()
+    r0 = r.get(url=url,params=params)
+    try:
+        data = r0.json()
+    except Exception as e:
+        raise(e)
+
+    return data
+    
+  #查看认证账户流量：
+  def get_sub_account_usage(self, start_time, end_time, sub_id):
+    url = f'{self.apibase}flow_proxy_account_use_record'
+        
+    params = {
+      'uid':self.uid,
+      'appkey':self.appkey,
+      'start_time':start_time,
+      'end_time':end_time,
+      'sub_id':sub_id
+    }
+    
+    r = requests.Session()
+    r0 = r.get(url=url,params=params)
+    try:
+      data = r0.json()
+    except Exception as e:
+      raise(e)
+
+    return data
 
   """IP APIs
   """
