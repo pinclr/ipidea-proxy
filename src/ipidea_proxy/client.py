@@ -4,7 +4,7 @@
 import requests
 import os
 
-class IpIdeaProxy(object):
+class IpideaProxy(object):
 
   def __init__(self, uid='', appkey='') -> None:
     #

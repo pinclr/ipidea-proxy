@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="ipidea",
-    version="0.3.0",
+    name="ipidea-proxy",
+    version="0.5.0",
     author="Pinclr Coders",
     author_email="coding@pinclr.com",
     description="Python Client for Ipidea Proxy Service API",
