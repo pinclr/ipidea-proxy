@@ -1,0 +1,21 @@
+---
+extends: default
+ignore: |
+  **/flux-system/
+rules:
+  line-length:
+    max: 180
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+  indentation:
+    spaces: 2
+    indent-sequences: true
+  empty-lines:
+    max-end: 1
+  comments:
+    min-spaces-from-content: 1
+  quoted-strings:
+    required: only-when-needed
+  truthy:
+    ignore: |
+      **/workflows/
