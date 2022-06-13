@@ -10,6 +10,11 @@ Python library for ipidea proxy service API
 
 ```shell
 $ pip install --upgrade ipidea-proxy
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting ipidea-proxy
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3a/65/b537feb63f22ce9453600cd49fbf1a230df6914c1ba133ed91efb1fa9a53/ipidea_proxy-0.5.0-py3-none-any.whl (7.8 kB)
+Installing collected packages: ipidea-proxy
+Successfully installed ipidea-proxy-0.5.0
 ```
 
 #### 1. 获取UID和APPKEY
