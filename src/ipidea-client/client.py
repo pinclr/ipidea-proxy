@@ -2,6 +2,7 @@
 """
 
 import requests
+import os
 
 class IpIdeaProxy(object):
 
@@ -10,8 +11,16 @@ class IpIdeaProxy(object):
     # get the uid and appkey from https://www.ipidea.net/ipidea-api.html#001
     # after signed in from https://www.ipidea.net/userLogin
     #
-    self.uid = uid
-    self.appkey = appkey
+    if uid:
+      self.uid = uid
+    else:
+      self.uid = os.environ.get('IPIDEA_UID')
+
+    if appkey:
+      self.appkey = appkey
+    else:
+      self.appkey = os.environ.get('IPIDEA_APPKEY')
+
     self.apibase = 'https://api.ipidea.net/api/open/'
 
   def auth(self, uid, appkey):
