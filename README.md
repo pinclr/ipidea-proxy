@@ -72,8 +72,6 @@ ipp.delete_whitelist('2.3.4.5')
 ipp.delete_whitelist()
 ```
 
-##### 5.Test
-
 ## API Reference
 
 https://www.ipidea.net/ipidea-api.html#001
