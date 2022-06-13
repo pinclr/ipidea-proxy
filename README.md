@@ -4,6 +4,14 @@ Python library for ipidea proxy service API
 
 ## 使用客户端
 
+#### 0. 安装
+
+通过pip安装ipidea-proxy的python客户端
+
+```shell
+$ pip install --upgrade ipidea-proxy
+```
+
 #### 1. 获取UID和APPKEY
 
 登录用户Profile
