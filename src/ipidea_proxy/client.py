@@ -32,7 +32,7 @@ class IpideaProxy(object):
   """whitelisting APIs
   """
 
-  #添加白名单（尚未解决输入多个IP同时完成指令）：
+  #添加白名单：
   def add_whitelist(self, white_ips):
     url = f'{self.apibase}white_add'
 
@@ -43,7 +43,7 @@ class IpideaProxy(object):
     }
 
     r = requests.Session()
-    r0 = r.get(url=url,params=params)
+    r0 = r.post(url=url,params=params)
     try:
       data = r0.json()
     except Exception as e:
@@ -51,7 +51,7 @@ class IpideaProxy(object):
 
     return data
     
-  #查找白名单
+  #查找白名单：
   def list_whitelist(self):
     url = f'{self.apibase}white_list'
 
@@ -61,7 +61,7 @@ class IpideaProxy(object):
     }
 
     r = requests.Session()
-    r0 = r.get(url=url,params=params)
+    r0 = r.post(url=url,params=params)
     try:
       data = r0.json()
     except Exception as e:
@@ -69,7 +69,7 @@ class IpideaProxy(object):
 
     return data
     
-  #删除白名单（尚未解决输入多个IP同时完成指令）
+  #删除白名单:
   def delete_whitelist(self, white_ips):
     url = f'{self.apibase}white_del'
 
@@ -80,7 +80,7 @@ class IpideaProxy(object):
     }
 
     r = requests.Session()
-    r0 = r.get(url=url,params=params)
+    r0 = r.post(url=url,params=params)
     try:
       data = r0.json()
     except Exception as e:
@@ -115,7 +115,7 @@ class IpideaProxy(object):
     }
 
     r = requests.Session()
-    r0 = r.get(url=url,params=params)
+    r0 = r.post(url=url,params=params)
     try:
       data = r0.json()
     except Exception as e:
@@ -137,7 +137,7 @@ class IpideaProxy(object):
     }
         
     r = requests.Session()
-    r0 = r.get(url=url,params=params)
+    r0 = r.post(url=url,params=params)
     try:
       data = r0.json()
     except Exception as e:
@@ -157,7 +157,7 @@ class IpideaProxy(object):
     }
         
     r = requests.Session()
-    r0 = r.get(url=url,params=params)
+    r0 = r.post(url=url,params=params)
     try:
         data = r0.json()
     except Exception as e:
