@@ -4,7 +4,7 @@ Python library for ipidea proxy service API
 
 ## 使用客户端
 
-#### 0. 安装
+### 0. 安装
 
 通过pip安装ipidea-proxy的python客户端
 
@@ -17,7 +17,7 @@ Installing collected packages: ipidea-proxy
 Successfully installed ipidea-proxy-0.5.0
 ```
 
-#### 1. 获取UID和APPKEY
+### 1. 获取UID和APPKEY
 
 登录用户Profile
 
@@ -27,7 +27,7 @@ https://www.ipidea.net/ucenter/
 
 https://www.ipidea.net/ipidea-api.html#001
 
-#### 2. 设置环境变量
+### 2. 设置环境变量
 
 通过上面获取的UID和APPKEY，设置到以下的环境变量。客户端会自动从该环境变量读取。
 
@@ -36,7 +36,7 @@ export IPIDEA_UID=xxx
 export IPIDEA_APPKEY=xxx
 ```
 
-#### 3. 初始化客户端
+### 3. 初始化客户端
 
 ```shell
 from ipidea_proxy import IpideaProxy
@@ -50,9 +50,10 @@ ipp = IpideaProxy(uid='xxxx', appkey='xxxxxx')
 
 ```
 
-#### 4. 使用客户端
+### 4. 使用客户端
 
-##### 4.1 设置IP到白名单
+#### 4.1 白名单
+##### 4.1.1 设置IP到白名单
 
 ```shell
 # 添加本机公网IP到白名单
@@ -60,9 +61,19 @@ ipp.add_whitelist()
 
 # 添加2.3.4.5到白名单
 ipp.add_whitelist('2.3.4.5')
+
+# 添加多个IP到白名单（e.g. '2.3.4.6','2.3.4.7')
+ipp.add_whitelist('2.3.4.6,2.3.4.7')
 ```
 
-##### 4.2 从白名单中删除IP
+##### 4.1.2 查看已设置的白名单
+
+```shell
+# 查看完整白名单列表
+ipp.list_whitelist()
+```
+
+##### 4.1.3 从白名单中删除IP
 
 ```shell
 # 从白名单中删除指定IP
@@ -72,7 +83,37 @@ ipp.delete_whitelist('2.3.4.5')
 ipp.delete_whitelist()
 ```
 
-#####
+#### 4.2 流量
+##### 4.2.1 获取剩余流量
+
+```shell
+# 获取当前账号剩余流量
+ipp.get_remaining_quota()
+```
+##### 4.2.2 流量设置预警
+
+```shell
+# 设置日预警值 101 并通知到指定手机号 188-8888-8888
+ipp.set_alarm_threshold('18888888888','101',0,0)
+
+# 设置流量自停
+ipp.set_alarm_threshold('18888888888','101',1,0)
+
+# 开启预警
+ipp.set_alarm_threshold('18888888888','101',0,1)
+```
+
+##### 4.2.3 查看主账户流量使用
+
+```shell
+# 查看主账号流量使用情况 (在输入函数中填写具体的起始时间)
+ipi.get_main_account_usage()
+```
+
+##### 4.2.4 查看认证账户流量
+```shell
+# 查看账户666666的使用流量 (在输入函数中填写具体的起始时间)
+ipi.get_sub_account_usage('666666')
 
 ## API Reference
 
