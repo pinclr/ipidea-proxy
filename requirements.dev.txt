@@ -1,7 +1,13 @@
+# for testing
 black==22.3.0
 yapf==0.32.0
 flake8==4.0.1
 pytest==7.0.1
+
+# for pypi package release
 twine==4.0.1
 build==0.8.0
+
+# for doc building
 Sphinx==5.0.1
+myst-parser==0.18.0
