@@ -1,3 +1,4 @@
 # for doc building
 Sphinx==5.0.1
 myst-parser==0.18.0
+sphinx-intl==2.0.1
