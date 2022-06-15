@@ -60,10 +60,11 @@ class TestApi(object):
         time.sleep(2)
         assert self.ipp.get_remaining_quota()['msg'] == 'success'
 
+    """
+  def test_get_sub_account_usage_msg_equals_success(self, sub_id):
+      assert ipp.get_sub_account_usage(sub_id)['msg'] == 'success'
 
-    #def test_get_sub_account_usage_msg_equals_success(sub_id):
-    #    assert self.ipp.get_sub_account_usage(sub_id)['msg'] == 'success'
-    
-    
-    #def test_set_alarm_threshold_msg_equals_success(phone, flow_upper_limit, operate, status):
-    #    assert self.ipp.set_alarm_threshold(phone, flow_upper_limit, operate, status)['msg'] == 'success'
+
+  def test_set_alarm_threshold_msg_equals_success(self, phone, flow_upper_limit, operate, status):
+      assert ipp.set_alarm_threshold(phone, flow_upper_limit, operate, status)['msg'] == 'success'
+    """
