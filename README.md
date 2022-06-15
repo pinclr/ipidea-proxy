@@ -118,3 +118,5 @@ ipi.get_sub_account_usage('666666')
 ## API Reference
 
 https://www.ipidea.net/ipidea-api.html#001
+
+[![Documentation Status](https://readthedocs.org/projects/ipidea-proxy/badge/?version=latest)](https://ipidea-proxy.readthedocs.io/en/latest/?badge=latest)
