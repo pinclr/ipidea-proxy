@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2022, Pinclr
+# This file is distributed under the same license as the ipidea-proxy
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ipidea-proxy \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-15 17:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.2\n"
+
+#: ../usage.rst:2
+msgid "Usage"
+msgstr "使用指南"
+
+#: ../usage.rst:7
+msgid "Installation"
+msgstr "安装"
+
+#: ../usage.rst:9
+msgid "To use ipidea-proxy, first install it using pip:"
+msgstr "使用ipidea-proxy前，请先通过pip进行安装"
+
+#: ../usage.rst:16
+msgid "Creating recipes"
+msgstr "创建指南"
+
+#: ../usage.rst:18
+msgid "For example:"
+msgstr "比如："
+
