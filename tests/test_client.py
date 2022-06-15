@@ -1,4 +1,3 @@
-from ipidea_proxy import client
 import os
 
 class TestApi(object):
@@ -18,7 +17,7 @@ class TestApi(object):
     else:
       self.appkey = os.environ.get('IPIDEA_APPKEY')
 
-    ipp = client.IpideaProxy(uid, appkey)
+    ipp = IpideaProxy(uid, appkey)
     
 
     def get_full_whitelisted_ips():
