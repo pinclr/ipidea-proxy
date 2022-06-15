@@ -3,8 +3,8 @@
 Python library for ipidea proxy service API
 
 [![Documentation Status](https://readthedocs.org/projects/ipidea-proxy/badge/?version=latest)](https://ipidea-proxy.readthedocs.io/en/latest/?badge=latest)
-
 [![Downloads](https://pepy.tech/badge/ipidea-proxy)](https://pepy.tech/project/ipidea-proxy)
+[![Coverage Status](https://coveralls.io/repos/github/pinclr/ipidea-proxy/badge.svg?branch=main)](https://coveralls.io/github/pinclr/ipidea-proxy?branch=main)
 
 ## 使用客户端
 
