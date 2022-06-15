@@ -2,6 +2,8 @@
 
 Python library for ipidea proxy service API
 
+[![Documentation Status](https://readthedocs.org/projects/ipidea-proxy/badge/?version=latest)](https://ipidea-proxy.readthedocs.io/en/latest/?badge=latest)
+
 ## 使用客户端
 
 ### 0. 安装
@@ -114,9 +116,9 @@ ipi.get_main_account_usage()
 ```shell
 # 查看账户666666的使用流量 (在输入函数中填写具体的起始时间)
 ipi.get_sub_account_usage('666666')
+```
 
 ## API Reference
 
 https://www.ipidea.net/ipidea-api.html#001
 
-[![Documentation Status](https://readthedocs.org/projects/ipidea-proxy/badge/?version=latest)](https://ipidea-proxy.readthedocs.io/en/latest/?badge=latest)
