@@ -4,3 +4,4 @@ flake8==4.0.1
 pytest==7.0.1
 twine==4.0.1
 build==0.8.0
+Sphinx==5.0.1
