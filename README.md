@@ -6,6 +6,7 @@ Python library for ipidea proxy service API
 [![Pypi](https://img.shields.io/pypi/v/ipidea-proxy.svg)](https://pypi.org/project/ipidea-proxy/)
 [![Documentation Status](https://readthedocs.org/projects/ipidea-proxy/badge/?version=latest)](https://ipidea-proxy.readthedocs.io/en/latest/?badge=latest)
 [![Downloads](https://pepy.tech/badge/ipidea-proxy)](https://pepy.tech/project/ipidea-proxy)
+![GitHub](https://img.shields.io/github/license/pinclr/ipidea-proxy)
 
 ## 使用客户端
 
