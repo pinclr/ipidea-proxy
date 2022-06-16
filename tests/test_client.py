@@ -18,37 +18,32 @@ class TestApi(object):
     return full_ips
 
   def split_whitelist_ips(self):
-    white_ips = '1.2.3.4'
+    white_ips = '1.2.3.4,1.2.3.5'
     if ',' in white_ips:
       split_ips = white_ips.split(',')
     else:
       split_ips = white_ips
     return split_ips
 
-  """
-    def test_add_whitelist_msg_equals_success(self):
-        white_ips = '1.2.3.4'
-        assert self.ipp.add_whitelist(white_ips)['msg'] == 'success'
+  def test_add_whitelist_msg_equals_success(self):
+    white_ips = '1.2.3.4,1.2.3.5'
+    assert self.ipp.add_whitelist(white_ips)['msg'] == 'success'
 
+  def test_whitelists_were_added(self):
+    white_ips = '1.2.3.4,1.2.3.5'
+    f = self.get_full_whitelisted_ips()
+    s = self.split_whitelist_ips(white_ips)
+    assert set(s) < set(f)
+
+  def test_delete_whitelist_msg_equals_success(self):
+    white_ips = '1.2.3.4,1.2.3.5'
+    assert self.ipp.delete_whitelist(white_ips)['msg'] == 'success'
         
-    def test_whitelists_were_added(self):
-        white_ips = '1.2.3.4'
-        f = self.get_full_whitelisted_ips()
-        s = self.split_whitelist_ips(white_ips)
-        assert set(s) < set(f)
-    
-    
-    def test_delete_whitelist_msg_equals_success(self):
-        white_ips = '1.2.3.4'
-        assert self.ipp.delete_whitelist(white_ips)['msg'] == 'success'
-        
-    
-    def test_ips_are_not_whitelisted(self):
-        white_ips = '1.2.3.4'
-        f = self.get_full_whitelisted_ips()
-        s = self.split_whitelist_ips(white_ips) 
-        assert (set(s) & set(f)) == set()
-    """
+  def test_ips_are_not_whitelisted(self):
+    white_ips = '1.2.3.4,1.2.3.5'
+    f = self.get_full_whitelisted_ips()
+    s = self.split_whitelist_ips(white_ips) 
+    assert (set(s) & set(f)) == set()
 
   def test_list_whitelist_msg_equals_success(self):
     assert self.ipp.list_whitelist()['msg'] == 'success'
@@ -61,11 +56,14 @@ class TestApi(object):
     time.sleep(2)
     assert self.ipp.get_remaining_quota()['msg'] == 'success'
 
-  """
-    def test_get_sub_account_usage_msg_equals_success(self, sub_id):
-        assert ipp.get_sub_account_usage(sub_id)['msg'] == 'success'
+  def test_get_sub_account_usage_msg_equals_success(self):
+    time.sleep(2)
+    sub_id = '313'
+    assert self.ipp.get_sub_account_usage(sub_id)['msg'] == 'success'
 
-
-    def test_set_alarm_threshold_msg_equals_success(self, phone, flow_upper_limit, operate, status):
-        assert ipp.set_alarm_threshold(phone, flow_upper_limit, operate, status)['msg'] == 'success'
-    """
+  def test_set_alarm_threshold_msg_equals_success(self):
+    phone = '18888888888'
+    flow_upper_limit = '101'
+    operate = '1'
+    status = '1'
+    assert self.ipp.set_alarm_threshold(phone, flow_upper_limit, operate, status)['msg'] == 'success'
