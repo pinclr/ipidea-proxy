@@ -9,11 +9,6 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-  IPIDEA_UID: ${{IPIDEA_UID}}
-  IPIDEA_APPKEY: ${{IPIDEA_APPKEY}}
-  PYTHONPATH: .
-
 permissions:
   contents: read
 
@@ -21,6 +16,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+
+    env:
+      IPIDEA_UID: ${{IPIDEA_UID}}
+      IPIDEA_APPKEY: ${{IPIDEA_APPKEY}}
+      PYTHONPATH: .
 
     steps:
     - uses: actions/checkout@v3
