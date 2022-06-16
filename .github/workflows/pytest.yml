@@ -40,8 +40,8 @@ jobs:
 
       - name: Test with pytest
         env:
-          IPIDEA_UID: ${{IPIDEA_UID}}
-          IPIDEA_APPKEY: ${{IPIDEA_APPKEY}}
+          IPIDEA_UID: ${{ secrets.IPIDEA_UID }}
+          IPIDEA_APPKEY: ${{ secrets.IPIDEA_APPKEY }}
           PYTHONPATH: .
         run: |
           pytest
