@@ -54,22 +54,22 @@ class TestApi(object):
     time.sleep(2)
     assert self.ipp.list_whitelist()['msg'] == 'success'
 
-    '''
   def get_main_account_usage_msg_equals_success(self):
     time.sleep(2)
-    assert self.ipp.get_main_account_usage()['msg'] == 'success'
-    '''
+    start_time = '2022-06-01 00:00:00'
+    end_time = '2022-06-07 23:59:59'
+    assert self.ipp.get_main_account_usage(start_time, end_time)['msg'] == 'success'
 
   def test_get_remaining_quota_msg_equals_success(self):
     time.sleep(2)
     assert self.ipp.get_remaining_quota()['msg'] == 'success'
 
-    '''
   def test_get_sub_account_usage_msg_equals_success(self):
     time.sleep(2)
     sub_id = '313'
-    assert self.ipp.get_sub_account_usage(sub_id)['msg'] == 'success'
-    '''
+    start_time = '2022-06-01 00:00:00'
+    end_time = '2022-06-07 23:59:59'
+    assert self.ipp.get_sub_account_usage(sub_id, start_time, end_time)['msg'] == 'success'
 
   def test_set_alarm_threshold_msg_equals_success(self):
     time.sleep(2)
