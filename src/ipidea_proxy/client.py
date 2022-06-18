@@ -1,9 +1,11 @@
 """ Client Library for IPIDEA Proxy Service API
 """
 
-import requests
-import time
 import os
+import time
+
+import requests
+
 
 class IpideaProxy(object):
 
@@ -147,12 +149,8 @@ class IpideaProxy(object):
     return data
     
     #查看主账户流量使用：
-  def get_main_account_usage(self):
+  def get_main_account_usage(self, start_time, end_time):
     url = f'{self.apibase}flow_use_record'
-      
-    print('Please input start_date and end_date in YYYY-MM-DD HH:MM:SS format')
-    start_time = input('Start Date Input:')
-    end_time = input('End Date Input:')
     
     start_date = time.strptime(start_time,'%Y-%m-%d %H:%M:%S')
     end_date = time.strptime(end_time,'%Y-%m-%d %H:%M:%S')
@@ -176,12 +174,8 @@ class IpideaProxy(object):
     return data
     
   #查看认证账户流量：
-  def get_sub_account_usage(self, sub_id):
+  def get_sub_account_usage(self, sub_id, start_time, end_time):
     url = f'{self.apibase}flow_proxy_account_use_record'
-
-    print('Please input start_date and end_date in YYYY-MM-DD HH:MM:SS format')
-    start_time = input('Start Date Input:')
-    end_time = input('End Date Input:')
     
     start_date = time.strptime(start_time,'%Y-%m-%d %H:%M:%S')
     end_date = time.strptime(end_time,'%Y-%m-%d %H:%M:%S')
