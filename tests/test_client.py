@@ -9,15 +9,13 @@ class TestApi(object):
   def setup_class(cls):
     cls.ipp = IpideaProxy()
 
-  def test_get_full_whitelisted_ips(self):
+  def get_full_whitelisted_ips(self):
     full_ips = []
     for log in self.ipp.list_whitelist()['ret_data']['lists']:
-      for k, v in log.keys():
-        if k == 'mark_ip':
-          full_ips.append(v)
+      full_ips.append(log['mark_ip'])
     return full_ips
 
-  def test_split_whitelist_ips(self):
+  def split_whitelist_ips(self):
     white_ips = '1.2.3.4,1.2.3.5'
     if ',' in white_ips:
       split_ips = white_ips.split(',')
@@ -26,6 +24,7 @@ class TestApi(object):
     return split_ips
 
   def test_add_whitelist_msg_equals_success(self):
+    time.sleep(2)
     white_ips = '1.2.3.4,1.2.3.5'
     assert self.ipp.add_whitelist(white_ips)['msg'] == 'success'
 
