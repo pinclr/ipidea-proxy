@@ -22,9 +22,10 @@ class TestApi(object):
       split_ips = white_ips
 
     self.ipp.add_whitelist(white_ips)
+    logs = self.ipp.list_whitelist()
 
     full_ips = []
-    for log in self.ipp.list_whitelist()['ret_data']['lists']:
+    for log in logs['ret_data']['lists']:
       full_ips.append(log['mark_ip'])
     assert set(split_ips) < set(full_ips)
 
@@ -43,9 +44,10 @@ class TestApi(object):
     self.ipp.add_whitelist(white_ips)
     self.ipp.add_whitelist('1.2.3.6')
     self.ipp.delete_whitelist(white_ips)
+    logs = self.ipp.list_whitelist()
 
     full_ips = []
-    for log in self.ipp.list_whitelist()['ret_data']['lists']:
+    for log in logs['ret_data']['lists']:
       full_ips.append(log['mark_ip'])
     assert (set(split_ips) & set(full_ips)) == set()
 
@@ -70,6 +72,7 @@ class TestApi(object):
     end_time = '2022-06-07 23:59:59'
     assert self.ipp.get_sub_account_usage(sub_id, start_time, end_time)['msg'] == 'success'
 
+  '''
   def test_set_alarm_threshold_msg_equals_success(self):
     time.sleep(2)
     phone = '18888888888'
@@ -77,3 +80,4 @@ class TestApi(object):
     operate = '1'
     status = '1'
     assert self.ipp.set_alarm_threshold(phone, flow_upper_limit, operate, status)['msg'] == 'success'
+  '''
