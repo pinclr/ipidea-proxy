@@ -21,6 +21,8 @@ class TestApi(object):
     else:
       split_ips = white_ips
 
+    self.ipp.add_whitelist(white_ips)
+
     full_ips = []
     for log in self.ipp.list_whitelist()['ret_data']['lists']:
       full_ips.append(log['mark_ip'])
@@ -37,6 +39,10 @@ class TestApi(object):
       split_ips = white_ips.split(',')
     else:
       split_ips = white_ips
+
+    self.ipp.add_whitelist(white_ips)
+    self.ipp.add_whitelist('1.2.3.6')
+    self.ipp.delete_whitelist(white_ips)
 
     full_ips = []
     for log in self.ipp.list_whitelist()['ret_data']['lists']:
