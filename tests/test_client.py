@@ -15,6 +15,7 @@ class TestApi(object):
     assert self.ipp.add_whitelist(white_ips)['msg'] == 'success'
 
   def test_whitelists_were_added(self):
+    time.sleep(2)
     white_ips = '1.2.3.4,1.2.3.5'
     if ',' in white_ips:
       split_ips = white_ips.split(',')
@@ -23,7 +24,6 @@ class TestApi(object):
 
     self.ipp.add_whitelist(white_ips)
     logs = self.ipp.list_whitelist()
-    print(logs)
 
     full_ips = []
     for log in logs['ret_data']['lists']:
@@ -36,6 +36,7 @@ class TestApi(object):
     assert self.ipp.delete_whitelist(white_ips)['msg'] == 'success'
 
   def test_ips_are_not_whitelisted(self):
+    time.sleep(2)
     white_ips = '1.2.3.4,1.2.3.5'
     if ',' in white_ips:
       split_ips = white_ips.split(',')
