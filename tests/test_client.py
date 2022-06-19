@@ -26,6 +26,7 @@ class TestApi(object):
 
     full_ips = []
     for log in logs['ret_data']['lists']:
+      print(log)
       full_ips.append(log['mark_ip'])
     assert set(split_ips) < set(full_ips)
 
@@ -48,6 +49,7 @@ class TestApi(object):
 
     full_ips = []
     for log in logs['ret_data']['lists']:
+      print(log)
       full_ips.append(log['mark_ip'])
     assert (set(split_ips) & set(full_ips)) == set()
 
