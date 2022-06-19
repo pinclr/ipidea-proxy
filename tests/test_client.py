@@ -23,10 +23,10 @@ class TestApi(object):
 
     self.ipp.add_whitelist(white_ips)
     logs = self.ipp.list_whitelist()
+    print(logs)
 
     full_ips = []
     for log in logs['ret_data']['lists']:
-      print(log)
       full_ips.append(log['mark_ip'])
     assert set(split_ips) < set(full_ips)
 
@@ -46,10 +46,10 @@ class TestApi(object):
     self.ipp.add_whitelist('1.2.3.6')
     self.ipp.delete_whitelist(white_ips)
     logs = self.ipp.list_whitelist()
+    print(logs)
 
     full_ips = []
     for log in logs['ret_data']['lists']:
-      print(log)
       full_ips.append(log['mark_ip'])
     assert (set(split_ips) & set(full_ips)) == set()
 
