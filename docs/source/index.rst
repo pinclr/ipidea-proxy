@@ -26,13 +26,14 @@ to :meth:`ipidea_proxy.client.IpideaProxy` or defined as environment variables
 ``IPIDEA_UID`` and ``IPIDEA_APPKEY`` respectively.
 
 Here's an example to initialize the client
+
 1.Defining environment variables in advance::
 
     from ipidea_proxy.client import IpideaProxy
    
     ipp = IpideaProxy()
 
-2.Passing explicitly to the client:
+2.Passing explicitly to the client::
 
     from ipidea_proxy.client import IpideaProxy
 
