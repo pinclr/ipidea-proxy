@@ -13,8 +13,7 @@ Installation
 
 Install from PyPI::
 
-    pip install ipidea-proxy
-
+    $ pip install ipidea-proxy --upgrade
 
 
 Initialization
@@ -33,7 +32,7 @@ Here's an example to initialize the client
    
     ipp = IpideaProxy()
 
-2.Passing explicitly to the client::
+2.Use uid and appkey explicitly with the client::
 
     from ipidea_proxy.client import IpideaProxy
 
@@ -51,23 +50,24 @@ use :meth:`ipidea_proxy.client.IpideaProxy` for more API purposes::
    
     ipp = IpideaProxy()
 
-    add whitelist ips:
+    # add whitelist ips:
     ipp.add_whitelist(white_ips)
 
-    list whitelist ips:
+    # list whitelist ips:
     ipp.list_whitelist()
 
-    delete whitelist ips:
+    # delete whitelist ips:
     ipp.delete_whitelist(white_ips)
 
-    get account remaining quota:
+    # get account remaining quota:
     ipp.get_remaining_quota()
 
-    set account alarm threshold:
+    # set account alarm threshold:
     ipp.set_alaram_threshold(phone, flow_upper_limit, operate, status)
 
-    get main account usage during a time period:
+    # get main account usage during a time period:
     ipp.get_main_account_usage(start_time, end_time)
 
-    get sub account usage during a time period:
+    # get sub account usage during a time period:
     ipp.get_sub_account_usage(sub_id, start_time, end_time)
+
